@@ -2,22 +2,20 @@
   <div class="home">
     <div class="container">
       <div class="img-home"></div>
-      <Title :title="'ПРОКАЧАЙ СЕБЯ В РЕАЛЬНОЙ ЖИЗНИ'"></Title>
-      <div class="subtitle">Создавай миссии <br> на день и следи за своим <br> прогрессом</div>
-      <Btn :text="'Cоздать'" :func="transitionToNewTask"></Btn>
+      <div class="title"><i18n path="home.title"><br slot="break"></i18n></div>
+      <div class="subtitle"><i18n path="home.subtitle"><br slot="break"></i18n> </div>
+      <Btn :text="$t('btn.create')" :func="transitionToNewTask"></Btn>
     </div>
   </div>
 </template>
 
 <script>
-import Btn from '../components/button.vue';
-import Title from '../components/title.vue';
+import Btn from '../components/Button.vue';
 
 export default {
   name: 'Home',
   components: {
     Btn,
-    Title,
   },
   methods: {
     transitionToNewTask() {
@@ -50,9 +48,19 @@ export default {
     }
   }
 
+  .title {
+    font-size: $font-size-L;
+    font-weight: $font-weight-bold;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: $margin-standard;
+    width: 300px;
+    text-transform: uppercase;
+  }
+
   .subtitle {
     font-weight: $font-weight-regular;
-    font-size: $font-size-M;
+    font-size: $font-size-S;
     line-height: 30px;
     text-align: center;
     margin-bottom: $margin-standard;

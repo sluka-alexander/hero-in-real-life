@@ -1,5 +1,5 @@
 <template>
-    <div class="btn ripple" @click="func">
+    <div class="btn ripple-btn" @click="func">
       {{ text }}
     </div>
 </template>
@@ -10,11 +10,13 @@ import ripple from '@/methods/ripple';
 export default {
   props: {
     text: String,
-    func: Function,
+    func: {
+      type: Function,
+    },
   },
   name: 'buttonStandard',
   mounted() {
-    document.querySelectorAll('.ripple').forEach((el) => {
+    document.querySelectorAll('.ripple-btn').forEach((el) => {
       ripple.setRippleElement(el, '#fff');
     });
   },

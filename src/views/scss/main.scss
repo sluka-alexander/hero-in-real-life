@@ -9,26 +9,22 @@ html, body {
   font-family: 'Open Sans', sans-serif;
 }
 
+a {
+  color: $black;
+  text-decoration: none;
+}
+
 .container {
   @extend %flex-center;
 
   flex-direction: column;
 
-  margin: 0  20px;
+  margin: 90px  20px 60px 20px;
 
   @include media(tablet) {
     width: 80%;
     margin: 0 auto;
   }
-}
-
-button {
-  padding: 0;
-  border: none;
-  font: inherit;
-  color: inherit;
-  background-color: transparent;
-  cursor: pointer;
 }
 
 @keyframes ripple {
