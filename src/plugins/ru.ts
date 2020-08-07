@@ -11,6 +11,14 @@ export default {
     rules: 'Правила',
   },
 
+  titles: {
+    nameOfTask: 'Название миссии',
+    levelOfDifficulty: 'Сложность',
+    category: 'Категория',
+    desc: 'Комментарий',
+    amountOfDays: 'Кол-во дней',
+  },
+
   btn: {
     create: 'Создать',
     signIn: 'Войти',
@@ -19,6 +27,15 @@ export default {
   lang: {
     ru: 'Русский',
     en: 'Английский',
+  },
+
+  input: {
+    email: 'Email',
+    password: 'Пароль',
+  },
+
+  validate: {
+    emptyField: 'Заполните пустое поле',
   },
 
   home: {

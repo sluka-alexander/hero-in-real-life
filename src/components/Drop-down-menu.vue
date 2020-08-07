@@ -1,9 +1,11 @@
 <template>
   <div class="drop-down-menu">
-    <Languages v-if="itemsTopMenuActive.lang"></Languages>
-    <Level v-if="itemsTopMenuActive.level"></Level>
-    <Rubies v-if="itemsTopMenuActive.rubies"></Rubies>
-    <More v-if="itemsTopMenuActive.more"></More>
+    <transition name="fade" appear mode="out-in">
+      <Languages v-if="itemsTopMenuActive.lang" key="lang"></Languages>
+      <Level v-if="itemsTopMenuActive.level" key="level"></Level>
+      <Rubies v-if="itemsTopMenuActive.rubies" key="rubies"></Rubies>
+      <More v-if="itemsTopMenuActive.more" key="more"></More>
+    </transition>
   </div>
 </template>
 
@@ -35,10 +37,10 @@ export default {
 @import "../views/scss/common/placeholders";
 @import "../views/scss/common/var";
 
-.drop-down-menu {
-  width: 100%;
-  border-top: 1px solid $gray;
-  background-color: $white;
-  box-shadow: 0px 5px 10px rgba(33, 38, 41, 0.1);
-}
+  .drop-down-menu {
+    width: 100%;
+    border-top: 1px solid $gray;
+    background-color: $white;
+    box-shadow: 0 5px 10px rgba(33, 38, 41, 0.1);
+  }
 </style>

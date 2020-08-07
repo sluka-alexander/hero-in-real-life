@@ -2,27 +2,27 @@
     <div class="menu-bottom" >
       <router-link to="/store" class="icon-block"
                    v-on:click.native="closeTopMenu">
-        <router-link to="/store" class="icon icon_store">
+        <router-link to="/store" class="icon icon__store">
         </router-link>
       </router-link>
       <router-link to="/new-task" class="icon-block"
                    v-on:click.native="closeTopMenu">
-        <router-link to="/new-task" class="icon icon_add">
+        <router-link to="/new-task" class="icon icon__add">
         </router-link>
       </router-link>
       <router-link to="/" class="icon-block"
                    v-on:click.native="closeTopMenu">
-        <router-link to="/" class="icon icon_home">
+        <router-link to="/" class="icon icon__home">
         </router-link>
       </router-link>
       <router-link to="/tasks" class="icon-block"
                    v-on:click.native="closeTopMenu">
-        <router-link to="/tasks" class="icon icon_tasks">
+        <router-link to="/tasks" class="icon icon__tasks">
         </router-link>
       </router-link>
       <router-link to="/profile" class="icon-block"
                    v-on:click.native="closeTopMenu">
-        <router-link to="/profile" class="icon icon_profile">
+        <router-link to="/profile" class="icon icon__profile">
         </router-link>
       </router-link>
     </div>

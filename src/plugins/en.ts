@@ -11,6 +11,14 @@ export default {
     rules: 'Rules',
   },
 
+  titles: {
+    nameOfTask: 'Name of task',
+    levelOfDifficulty: 'level of difficulty',
+    category: 'Category',
+    desc: 'Description',
+    amountOfDays: 'amount of days',
+  },
+
   btn: {
     create: 'Create',
     signIn: 'Sign In',
@@ -19,6 +27,15 @@ export default {
   lang: {
     ru: 'Russian',
     en: 'English',
+  },
+
+  input: {
+    email: 'Email',
+    password: 'Password',
+  },
+
+  validate: {
+    emptyField: 'Empty field',
   },
 
   home: {

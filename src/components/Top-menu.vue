@@ -4,27 +4,27 @@
       <div class="icon-block ripple"
            :class="{ 'icon-block_active': itemsTopMenuActive.lang }"
            @click="openDropDownMenu('lang')">
-        <div v-if="lang === 'ru'" class="icon icon_lang-ru"></div>
-        <div v-if="lang === 'en'" class="icon icon_lang-en"></div>
+        <div v-if="lang === 'ru'" class="icon icon__lang-ru"></div>
+        <div v-if="lang === 'en'" class="icon icon__lang-en"></div>
       </div>
       <div class="icon-block ripple" @click="openDropDownMenu('level')"
            :class="{ 'icon-block_active': itemsTopMenuActive.level }">
-        <div class="icon icon_level"></div>
+        <div class="icon icon__level"></div>
         <div class="icon-block__text icon-block__text_red">6</div>
       </div>
       <div class="icon-block ripple" @click="openDropDownMenu('rubies')"
            :class="{ 'icon-block_active': itemsTopMenuActive.rubies }">
-        <div class="icon icon_rubies"></div>
+        <div class="icon icon__rubies"></div>
         <div class="icon-block__text icon-block__text_blue">10</div>
       </div>
       <div class="icon-block ripple" @click="openDropDownMenu('more')"
            :class="{ 'icon-block_active': itemsTopMenuActive.more }">
-        <div class="icon icon_more"
-             :class="{ 'icon_more_active': itemsTopMenuActive.more }"></div>
+        <div class="icon icon__more"
+             :class="{ 'icon__more_active': itemsTopMenuActive.more }"></div>
       </div>
     </div>
-    <drop-menu v-if="itemsTopMenuActive.lang || itemsTopMenuActive.level
-    || itemsTopMenuActive.rubies || itemsTopMenuActive.more"></drop-menu>
+      <drop-menu v-if="itemsTopMenuActive.lang || itemsTopMenuActive.level
+        || itemsTopMenuActive.rubies || itemsTopMenuActive.more" key="drop-menu"></drop-menu>
   </div>
 </template>
 
@@ -67,6 +67,10 @@ export default {
   @import "../views/scss/common/mixins";
   @import "../views/scss/common/placeholders";
   @import "../views/scss/common/var";
+
+  .slide-enter, .slide-leave-to{
+    transform: scaleY(0);
+  }
 
   .menu-top {
     @extend %flex;
