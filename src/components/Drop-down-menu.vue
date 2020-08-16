@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import Languages from '@/components/drop-down-menu/Languages.vue';
-import Level from '@/components/drop-down-menu/Level.vue';
-import Rubies from '@/components/drop-down-menu/Rubies.vue';
-import More from '@/components/drop-down-menu/More.vue';
+import Languages from '@/components/drop-down-top-menu/Languages.vue';
+import Level from '@/components/drop-down-top-menu/Level.vue';
+import Rubies from '@/components/drop-down-top-menu/Rubies.vue';
+import More from '@/components/drop-down-top-menu/More.vue';
 
 export default {
   name: 'drop-down-menu',

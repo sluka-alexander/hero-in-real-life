@@ -9,7 +9,6 @@
       <Fires></Fires>
       <Subtitle :text="$t('titles.category')"></Subtitle>
       <dropdown
-        :config="config"
         @setSelectedOption="setNewSelectedOption($event);"
       ></dropdown>
       <Subtitle :text="$t('titles.desc')"></Subtitle>
@@ -20,7 +19,6 @@
         <div class="days-block__amount">{{ amountOfDays }}</div>
         <div class="days-block__btn-change">+</div>
       </div>
-      <Btn :text="$t('btn.create')"></Btn>
     </div>
   </div>
 </template>
@@ -30,8 +28,7 @@ import Title from '../components/Title.vue';
 import Subtitle from '../components/Subtitle.vue';
 import InputStandard from '../components/Input-standard.vue';
 import Fires from '../components/Fires.vue';
-import dropdown from '../components/drop-down.vue';
-import Btn from '../components/Button.vue';
+import dropdown from '../components/drop-down-category.vue';
 
 export default {
   name: 'New-task',
@@ -41,39 +38,16 @@ export default {
     InputStandard,
     Fires,
     dropdown,
-    Btn,
   },
   data() {
     return {
       amountOfDays: 1,
-      config: {
-        options: [
-          {
-            value: 'option 1',
-          },
-          {
-            value: 'option 2',
-          },
-          {
-            value: 'option 3',
-          },
-          {
-            value: 'option 4',
-          },
-          {
-            value: 'option 5',
-          },
-          {
-            value: 'option 6',
-          },
-        ],
-        placeholder: 'Выберите',
-      },
+      selectedItemCategory: '',
     };
   },
   methods: {
     setNewSelectedOption(selectedOption) {
-      this.config.placeholder = selectedOption.value;
+      this.selectedItemCategory = selectedOption.value;
     },
   },
 };

@@ -1,6 +1,6 @@
 export default {
   items: {
-    home: 'На главную',
+    home: 'Главная',
     newTask: 'Создать миссию',
     tasks: 'Миссии',
     profile: 'Профиль',
@@ -9,6 +9,7 @@ export default {
     login: 'Войти',
     progress: 'Прогресс',
     rules: 'Правила',
+    achievement: 'Достижения',
   },
 
   titles: {
@@ -17,6 +18,21 @@ export default {
     category: 'Категория',
     desc: 'Комментарий',
     amountOfDays: 'Кол-во дней',
+  },
+
+  category: {
+    arts: 'Искусство',
+    careerAndFinances: 'Карьера & Финансы',
+    healthAndFitness: 'Здоровье & Фитнесс',
+    reading: 'Чтение',
+    foodAndCooking: 'Еда & Готовка',
+    houseHold: 'Домашнее хозяйство',
+    travel: 'Путешествия',
+    schoolAndLearning: 'Школа & Учёба',
+    fun: 'Развлечения',
+    mental: 'Внутреннее состояние',
+    humanity: 'Помощь',
+    outDoors: 'Время на свежем воздухе',
   },
 
   btn: {
@@ -32,6 +48,10 @@ export default {
   input: {
     email: 'Email',
     password: 'Пароль',
+  },
+
+  select: {
+    placeholder: 'Введите',
   },
 
   validate: {

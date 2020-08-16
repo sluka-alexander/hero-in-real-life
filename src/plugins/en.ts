@@ -9,6 +9,7 @@ export default {
     login: 'Login',
     progress: 'Progress',
     rules: 'Rules',
+    achievement: 'Achievement',
   },
 
   titles: {
@@ -17,6 +18,21 @@ export default {
     category: 'Category',
     desc: 'Description',
     amountOfDays: 'amount of days',
+  },
+
+  category: {
+    arts: 'Arts',
+    careerAndFinances: 'Career & Finances',
+    healthAndFitness: 'Health & Fitness',
+    reading: 'Reading',
+    foodAndCooking: 'Food & Cooking',
+    houseHold: 'House hold',
+    travel: 'Travel',
+    schoolAndLearning: 'School & Learning',
+    fun: 'Fun',
+    mental: 'Mental',
+    humanity: 'Humanity',
+    outDoors: 'Outdoors',
   },
 
   btn: {
@@ -32,6 +48,10 @@ export default {
   input: {
     email: 'Email',
     password: 'Password',
+  },
+
+  select: {
+    placeholder: 'Select',
   },
 
   validate: {

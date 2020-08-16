@@ -1,21 +1,22 @@
 <template>
   <div
     class="dropdown"
-    @click="toggleRiskLevels">
+    @click="toggleRiskLevels"
+    :class="{'dropdown_active': isBottomSectionToggled}">
     <span class="dropdown__text">
-      {{ (config.prefix ? config.prefix : "") + " "
-      }}{{ config.placeholder ? config.placeholder : "" }}</span>
+      {{ selectedItemCategory ? $t('category.' + selectedItemCategory):
+      $t('select.placeholder') }}</span>
     <i class="dropdown__angle-down"
        :class="{'dropdown__angle-down_active': isBottomSectionToggled}"></i>
     <transition name="fade-options">
       <div v-if="isBottomSectionToggled" class="dropdown__options">
         <div
-          v-for="(option, index) in configOptions"
-          class="dropdown__option ripple-option"
+          v-for="(item, index) in category"
+          class="dropdown__option"
           v-bind:key="index"
-          @click="setCurrentSelectedOption(option);"
+          @click="setCurrentSelectedOption(item);"
         >
-          {{ option.value }}
+          {{ $t('category.' + item) }}
         </div>
       </div>
     </transition>
@@ -23,38 +24,49 @@
 </template>
 
 <script>
-import ripple from '@/methods/ripple';
+import CategoryEnglish from '../plugins/en';
 
 export default {
   name: 'drop-down',
   data() {
     return {
       isBottomSectionToggled: false,
-      configOptions: [],
+      category: Object.keys(CategoryEnglish.category).sort(),
+      selectedItemCategory: '',
     };
   },
-  props: ['config'],
-  computed: {},
   methods: {
     toggleRiskLevels() {
       this.isBottomSectionToggled = !this.isBottomSectionToggled;
     },
-    setCurrentSelectedOption(option) {
-      this.$emit('setSelectedOption', option);
+    setCurrentSelectedOption(item) {
+      this.selectedItemCategory = item;
+      this.$emit('setSelectedOption', item);
     },
-    setConfigData() {
-      this.configOptions = this.config.options;
-      this.placeholder = this.config.placeholder;
+    closeDropDown(e) {
+      if (!this.$el.contains(e.target)) {
+        this.isBottomSectionToggled = false;
+      }
     },
   },
-  created() {
-    this.setConfigData();
+  computed: {
+    lang() {
+      return this.$store.getters.LANG;
+    },
   },
   mounted() {
-    document.querySelectorAll('.ripple-option').forEach((el) => {
-      ripple.setRippleElement(el, '#000');
-    });
+    document.addEventListener('click', this.closeDropDown);
   },
+  // watch: {
+  //   lang: ()=> {
+  //     if(this.lang === 'ru') {
+  //       this.category = Object.values(CategoryRussian.category).sort();
+  //     }
+  //     if(this.lang === 'en') {
+  //       this.category = Object.values(CategoryRussian.category).sort();
+  //     }
+  //   },
+  // }
 };
 </script>
 
@@ -67,6 +79,7 @@ export default {
   .dropdown {
     @extend %flex-space-between;
 
+    align-items: center;
     font-size: $font-size-XXS;
     width: 250px;
     padding: 10px 15px;
@@ -76,33 +89,42 @@ export default {
     user-select: none;
     background-color: $white;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.03);
-    transition: 0.3s;
+    transition: 0.2s;
     margin-bottom: $margin-standard;
+
+    &:hover {
+      color: $blue;
+    }
+
+    &_active {
+      color: $blue;
+    }
 
     &__angle-down {
       @extend %flex-center;
 
       border: solid;
       border-width: 0 1px 1px 0;
-      padding: 4px;
+      padding: 2px;
       width: 1px;
       height: 1px;
       transform: rotate(45deg);
       transition: 0.3s;
 
       &_active {
-        transform: rotate(-135deg);
+        transform: rotate(225deg);
       }
     }
 
     &__options {
       @extend %flex;
 
-      @include size(100%, 100px);
+      @include size(100%, 180px);
       position: absolute;
       flex-direction: column;
 
       background-color: $white;
+      color: $black;
       overflow-y: scroll;
       left: 0;
       top: 35px;
@@ -123,7 +145,7 @@ export default {
         background-color: $light-gray;
       }
       &:last-child {
-        border-radius: 0 0 5px 5px;
+        border-radius: 0 0 0px 5px;
       }
     }
   }

@@ -1,27 +1,22 @@
 <template>
     <div class="menu-bottom" >
-      <router-link to="/store" class="icon-block"
-                   v-on:click.native="closeTopMenu">
+      <router-link to="/store" class="icon-block">
         <router-link to="/store" class="icon icon__store">
         </router-link>
       </router-link>
-      <router-link to="/new-task" class="icon-block"
-                   v-on:click.native="closeTopMenu">
+      <router-link to="/new-task" class="icon-block">
         <router-link to="/new-task" class="icon icon__add">
         </router-link>
       </router-link>
-      <router-link to="/" class="icon-block"
-                   v-on:click.native="closeTopMenu">
+      <router-link to="/" class="icon-block">
         <router-link to="/" class="icon icon__home">
         </router-link>
       </router-link>
-      <router-link to="/tasks" class="icon-block"
-                   v-on:click.native="closeTopMenu">
+      <router-link to="/tasks" class="icon-block">
         <router-link to="/tasks" class="icon icon__tasks">
         </router-link>
       </router-link>
-      <router-link to="/profile" class="icon-block"
-                   v-on:click.native="closeTopMenu">
+      <router-link to="/profile" class="icon-block">
         <router-link to="/profile" class="icon icon__profile">
         </router-link>
       </router-link>
@@ -36,11 +31,6 @@ export default {
     return {
     };
   },
-  methods: {
-    closeTopMenu() {
-      this.$store.dispatch('CLOSE_TOP_MENU');
-    },
-  },
 };
 </script>
 
@@ -54,6 +44,10 @@ export default {
     @extend %flex;
 
     @include size(100%, 50px);
+
+    .router-link-exact-active {
+      opacity: 100%;
+    }
 
     position: fixed;
     bottom: 0;
@@ -75,8 +69,5 @@ export default {
     &:hover {
       background-color: $light-gray;
     }
-  }
-  .router-link-exact-active {
-    opacity: 100%;
   }
 </style>

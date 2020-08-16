@@ -26,7 +26,7 @@ export default {
 
     &__subtitle {
       font-size: $font-size-S;
-      font-weight: $font-weight-regular;
+      font-weight: $font-weight-bold;
       margin-bottom: $margin-standard;
     }
   }

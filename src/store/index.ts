@@ -11,7 +11,7 @@ export default new Vuex.Store({
       rubies: false,
       more: false,
     },
-    lang: localStorage.getItem('lang') || 'ru',
+    lang: localStorage.getItem('lang') || 'en',
     isActiveDropDownMenu: false,
     activeTopMenuItem: String,
   },

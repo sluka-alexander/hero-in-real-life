@@ -1,14 +1,11 @@
 <template>
-  <div class="blackout" @click="closeBlackout"></div>
+  <div class="blackout"></div>
 </template>
 
 <script>
 export default {
   name: 'Blackout',
   methods: {
-    closeBlackout() {
-      this.$store.dispatch('CLOSE_TOP_MENU');
-    },
   },
 };
 </script>

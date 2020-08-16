@@ -1,49 +1,80 @@
 <template>
   <div id="app">
     <TopMenu></TopMenu>
-    <transition name="fade-blackout" appear>
-        <Blackout v-if="itemsTopMenuActive.lang || itemsTopMenuActive.level
-        || itemsTopMenuActive.rubies || itemsTopMenuActive.more"
-                  v-bind:class="{ active: itemsTopMenuActive.lang }"></Blackout>
-    </transition>
-    <router-view/>
+    <left-menu></left-menu>
     <BottomMobileMenu></BottomMobileMenu>
   </div>
 </template>
 
 <script>
-import Blackout from '@/components/Blackout.vue';
 import TopMenu from '@/components/Top-menu.vue';
+import LeftMenu from '@/components/left-menu.vue';
 import BottomMobileMenu from '@/components/Bottom-mobile-menu.vue';
 
 export default {
   name: 'Home',
   components: {
-    Blackout,
     TopMenu,
     BottomMobileMenu,
+    LeftMenu,
   },
   computed: {
     itemsTopMenuActive() {
       return this.$store.getters.ITEMS_TOP_MENU_ACTIVE;
     },
+    lang() {
+      return this.$store.getters.LANG;
+    },
+  },
+  mounted() {
+    this.$i18n.locale = this.lang;
+    localStorage.setItem('lang', this.lang);
   },
 };
 </script>
 
 <style lang="scss">
 @import "views/scss/main";
+@import "views/scss/common/placeholders";
   #app {
     width: 100%;
   }
+  .router-link-exact-active {
+    .icon {
+      opacity: 100%;
+
+      &__home {
+        background-image: url('views/img/icons/white/home.svg');
+      }
+
+      &__store {
+        background-image: url('views/img/icons/white/store.svg');
+      }
+
+      &__progress {
+        background-image: url('views/img/icons/white/progress.svg');
+      }
+
+      &__achievement {
+        background-image: url('views/img/icons/white/achievement.svg');
+      }
+
+      &__tasks {
+        background-image: url('views/img/icons/white/tasks.svg');
+      }
+
+      &__rules {
+        background-image: url('views/img/icons/white/rules.svg');
+      }
+    }
+  };
 
   .icon {
     @extend %img;
 
-    @include size(20px);
+    @include size(30px);
 
-    opacity: 35%;
-    transition: 0.2s;
+    opacity: 60%;
     cursor: pointer;
 
     &__active {
@@ -59,11 +90,11 @@ export default {
     }
 
     &__home {
-      background-image: url('views/img/icons/home-run.svg');
+      background-image: url('views/img/icons/home.svg');
     }
 
     &__tasks {
-      background-image: url('views/img/icons/book.svg');
+      background-image: url('views/img/icons/tasks.svg');
     }
 
     &__profile {
@@ -98,6 +129,18 @@ export default {
       &_active {
         opacity: 100%;
       }
+    }
+
+    &__progress {
+      background-image: url('views/img/icons/progress.svg');
+    }
+
+    &__achievement {
+      background-image: url('views/img/icons/achievement.svg');
+    }
+
+    &__rules {
+      background-image: url('views/img/icons/rules.svg');
     }
 
     &__fire {

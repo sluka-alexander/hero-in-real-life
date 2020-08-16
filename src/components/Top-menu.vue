@@ -45,6 +45,11 @@ export default {
     openDropDownMenu(item) {
       this.$store.commit('SELECT_TOP_MENU_ITEM', item);
     },
+    closeDropDown(e) {
+      if (!this.$el.contains(e.target)) {
+        this.$store.dispatch('CLOSE_TOP_MENU');
+      }
+    },
   },
   computed: {
     lang() {
@@ -58,6 +63,7 @@ export default {
     document.querySelectorAll('.ripple').forEach((el) => {
       ripple.setRippleElement(el, '#000');
     });
+    document.addEventListener('click', this.closeDropDown);
   },
 };
 </script>
@@ -75,9 +81,6 @@ export default {
   .menu-top {
     @extend %flex;
 
-    position: fixed;
-    top:0;
-    left: 0;
     flex-direction: column;
     background-color: $white;
     box-shadow: 0px 5px 10px rgba(33, 38, 41, 0.1);
